@@ -12,7 +12,7 @@ export default async function handler(
   const cachedData = (await redis.get(tagsQuery)) as string;
 
   if (cachedData) {
-    res.setHeader("Cache-Control", "s-maxage=120, stale-while-revalidate");
+    // res.setHeader("Cache-Control", "s-maxage=120, stale-while-revalidate");
     res.status(200).json(JSON.parse(cachedData));
     return;
   }

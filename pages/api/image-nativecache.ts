@@ -12,7 +12,7 @@ export default async function handler(
       .with_field("tags")
       .with_field("context")
       .execute();
-    res.setHeader("Cache-Control", "s-maxage=120, stale-while-revalidate");
+    res.setHeader("Cache-Control", "s-maxage=300, stale-while-revalidate");
     res.status(200).json(result);
   } catch (error: any) {
     res.status(500).json({ error: error.message || "Something went wrong" });
